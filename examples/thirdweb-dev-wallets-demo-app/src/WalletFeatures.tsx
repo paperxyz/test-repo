@@ -102,9 +102,7 @@ export const WalletFeatures: React.FC<Props> = ({ user }) => {
   const signMessage = async () => {
     setLoading(Features.SIGN_MESSAGE);
     // You can override the RPC url to whatever endpoint you need
-    const signer = await wallet?.getEthersJsSigner({
-      rpcEndpoint: "https://mumbai.rpc.thirdweb.com",
-    });
+    const signer = await wallet?.getEthersJsSigner();
     console.log("await signer?.getChainId()", await signer?.getChainId());
     const signedMessage = await signer?.signMessage("hello world");
     onResult({
@@ -195,9 +193,7 @@ export const WalletFeatures: React.FC<Props> = ({ user }) => {
   const signTypedDataV4 = async () => {
     setLoading(Features.SIGN_TYPED_DATA);
 
-    const signer = await wallet?.getEthersJsSigner({
-      rpcEndpoint: "https://mumbai.rpc.thirdweb.com",
-    });
+    const signer = await wallet?.getEthersJsSigner();
 
     const signedTypedData = await signer?._signTypedData(
       dataToSign.domain,
